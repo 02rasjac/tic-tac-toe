@@ -11,6 +11,25 @@ const game = (() => {
 
     const select = (squareIndex, player) => {
       squares[squareIndex].innerText = player.sign;
+      check(squareIndex, player.sign);
+    };
+
+    const check = (index, sign) => {
+      const row = () => {
+        const firstIndex = getFirstIndexInRow(index);
+        for (let i = firstIndex; i < firstIndex + 3; i++) {
+          if (sign !== squares[i].innerText) return false;
+        }
+        return true;
+      };
+
+      if (row()) console.log('Someone won');
+    };
+
+    const getFirstIndexInRow = (index) => {
+      if (index < 3) return 0;
+      if (index > 5) return 6;
+      return 3;
     };
 
     return { select };
