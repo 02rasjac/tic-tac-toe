@@ -1,5 +1,9 @@
-const playerFact = (sign) => {
-  return { sign };
+const playerFact = (playerNum) => {
+  const choices = document.querySelector(`#p${playerNum}`);
+  const name = choices.querySelector(`#p${playerNum}-name`).value;
+  const sign = choices.querySelector(`#p${playerNum}-sign`).value;
+  const color = choices.querySelector(`#p${playerNum}-color`).value;
+  return { name, sign, color };
 };
 
 const game = (() => {
@@ -79,8 +83,8 @@ const game = (() => {
     return { select };
   })();
 
-  const player1 = playerFact('X');
-  const player2 = playerFact('O');
+  const player1 = playerFact(1);
+  const player2 = playerFact(2);
   let currentPlayer = player1;
   let ended = false;
   let nSelected = 0;
