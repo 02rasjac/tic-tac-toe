@@ -83,6 +83,7 @@ const game = (() => {
   const player2 = playerFact('O');
   let currentPlayer = player1;
   let ended = false;
+  let nSelected = 0;
 
   const select = (e) => {
     if (e.target.dataset.index == null) return;
@@ -91,12 +92,18 @@ const game = (() => {
     const retVal = gameboard.select(e.target.dataset.index, currentPlayer);
     if (retVal === null) return;
     if (retVal === true) {
-      // Game ended
+      // Someone won
       console.log(currentPlayer.sign + ' won!');
       ended = true;
     }
 
     currentPlayer = currentPlayer === player1 ? player2 : player1;
+    nSelected++;
+    if (nSelected >= 9) {
+      // No-one won
+      console.log("It's a tie!");
+      ended = true;
+    }
   };
 
   document.addEventListener('click', select);
