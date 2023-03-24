@@ -23,13 +23,24 @@ const game = (() => {
         return true;
       };
 
-      if (row()) console.log('Someone won');
+      const col = () => {
+        console.log(getFirstIndexInCol(index));
+      };
+
+      if (row() || col()) console.log('Someone won');
     };
 
     const getFirstIndexInRow = (index) => {
       if (index < 3) return 0;
       if (index > 5) return 6;
       return 3;
+    };
+
+    const getFirstIndexInCol = (index) => {
+      const mod = index % 3;
+      if (mod === 0) return 0;
+      if (mod === 1) return 1;
+      return 2;
     };
 
     return { select };
