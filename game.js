@@ -9,11 +9,22 @@ const game = (() => {
       s.dataset.index = i;
     });
 
+    /**
+     * Update the selected square.
+     * @param {int} squareIndex The index of the square.
+     * @param {player} player The player-object.
+     */
     const select = (squareIndex, player) => {
       squares[squareIndex].innerText = player.sign;
       check(squareIndex, player.sign);
     };
 
+    /**
+     * Check if some has won.
+     * @param {int} index The selected index.
+     * @param {string} sign The sign to check equals to.
+     * @returns `true` if some won, otherwise `false`.
+     */
     const check = (index, sign) => {
       const row = () => {
         const firstIndex = getFirstIndexInRow(index);
@@ -45,7 +56,7 @@ const game = (() => {
         return true;
       };
 
-      if (row() || col() || diag1() || diag2()) console.log('Someone won');
+      return row() || col() || diag1() || diag2();
     };
 
     const getFirstIndexInRow = (index) => {
