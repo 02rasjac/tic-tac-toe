@@ -82,12 +82,20 @@ const game = (() => {
   const player1 = playerFact('X');
   const player2 = playerFact('O');
   let currentPlayer = player1;
+  let ended = false;
 
   const select = (e) => {
     if (e.target.dataset.index == null) return;
+    if (ended) return;
+
     const retVal = gameboard.select(e.target.dataset.index, currentPlayer);
     if (retVal === null) return;
-    if (retVal === true) console.log(currentPlayer.sign + ' won!');
+    if (retVal === true) {
+      // Game ended
+      console.log(currentPlayer.sign + ' won!');
+      ended = true;
+    }
+
     currentPlayer = currentPlayer === player1 ? player2 : player1;
   };
 
