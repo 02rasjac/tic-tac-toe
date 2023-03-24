@@ -1,3 +1,7 @@
+const playerFact = (sign) => {
+  return { sign };
+};
+
 const game = (() => {
   const gameboard = (() => {
     const squares = document.querySelectorAll('.square');
@@ -5,16 +9,19 @@ const game = (() => {
       s.dataset.index = i;
     });
 
-    const select = (square, player) => {
-      console.log({ square, player });
+    const select = (squareIndex, player) => {
+      console.log({ squares: squares[squareIndex], player });
     };
 
     return { select };
   })();
 
+  const player1 = playerFact('X');
+  const player2 = playerFact('O');
+
   const select = (e) => {
     if (e.target.dataset.index == null) return;
-    console.log(e.target);
+    gameboard.select(e.target.dataset.index, player1);
   };
 
   document.addEventListener('click', select);
