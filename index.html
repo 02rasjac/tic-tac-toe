@@ -9,16 +9,66 @@
   </head>
   <body>
     <h1>Play Tic-Tac-Toe!</h1>
-    <div id="gameboard">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
+    <div class="container">
+      <div id="gameboard">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div class="creator">
+        <div id="p1" class="player-creation">
+          <h2>Player 1</h2>
+          <label for="p1-name">Name:</label>
+          <input type="text" name="p1-name" id="p1-name" value="Player 1" />
+          <label for="p1-sign">Sign:</label>
+          <select name="p1-sign" id="p1-sign">
+            <option value="x">X</option>
+            <option value="o">O</option>
+            <option value="!">!</option>
+            <option value="?">?</option>
+            <option value="&">&</option>
+            <option value="$">$</option>
+          </select>
+          <label for="p1-color">Color:</label>
+          <select name="p1-color" id="p1-color">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="black">Black</option>
+            <option value="purple">Purple</option>
+          </select>
+        </div>
+        <div id="p2" class="player-creation">
+          <h2>Player 2</h2>
+          <label for="p2-name">Name:</label>
+          <input type="text" name="p2-name" id="p2-name" value="Player 2" />
+          <label for="p2-sign">Sign:</label>
+          <select name="p2-sign" id="p2-sign">
+            <option value="x">X</option>
+            <option value="o" selected>O</option>
+            <option value="!">!</option>
+            <option value="?">?</option>
+            <option value="&">&</option>
+            <option value="$">$</option>
+          </select>
+          <label for="p2-color">Color:</label>
+          <select name="p2-color" id="p2-color">
+            <option value="red">Red</option>
+            <option value="blue" selected>Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="black">Black</option>
+            <option value="purple">Purple</option>
+          </select>
+        </div>
+      </div>
     </div>
     <script src="game.js"></script>
   </body>

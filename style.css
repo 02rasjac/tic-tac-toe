@@ -13,8 +13,14 @@ body {
   align-items: center;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
 #gameboard {
-  --size: 18rem;
+  --size: 32rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -26,11 +32,41 @@ body {
 .square {
   width: calc(var(--size) / 3);
   height: calc(var(--size) / 3);
-  background-color: aliceblue;
-  color: rgb(36, 36, 36);
   font-size: calc(var(--size) * 0.5 - 1rem);
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.square,
+input,
+select,
+option {
+  background-color: aliceblue;
+  color: rgb(36, 36, 36);
+}
+
+.player-creation {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.player-creation:first-child {
+  margin-bottom: 3rem;
+}
+
+.player-creation input,
+.player-creation select {
+  margin-bottom: 1rem;
+}
+
+#p1 {
+  border: 1px solid red;
+}
+
+#p2 {
+  border: 1px solid blue;
 }
