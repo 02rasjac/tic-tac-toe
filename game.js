@@ -10,7 +10,7 @@ const game = (() => {
     });
 
     const select = (squareIndex, player) => {
-      console.log({ squares: squares[squareIndex], player });
+      squares[squareIndex].innerText = player.sign;
     };
 
     return { select };

@@ -28,4 +28,10 @@ body {
   width: calc(var(--size) / 3);
   height: calc(var(--size) / 3);
   background-color: aliceblue;
+  color: rgb(36, 36, 36);
+  font-size: calc(var(--size) * 0.5 - 1rem);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
