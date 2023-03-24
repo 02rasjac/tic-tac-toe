@@ -31,7 +31,21 @@ const game = (() => {
         return true;
       };
 
-      if (row() || col()) console.log('Someone won');
+      const diag1 = () => {
+        for (let i = 2; i < 7; i += 2) {
+          if (sign !== squares[i].innerText) return false;
+        }
+        return true;
+      };
+
+      const diag2 = () => {
+        for (let i = 0; i < 9; i += 4) {
+          if (sign !== squares[i].innerText) return false;
+        }
+        return true;
+      };
+
+      if (row() || col() || diag1() || diag2()) console.log('Someone won');
     };
 
     const getFirstIndexInRow = (index) => {
