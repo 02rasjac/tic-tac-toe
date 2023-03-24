@@ -18,10 +18,12 @@ const game = (() => {
 
   const player1 = playerFact('X');
   const player2 = playerFact('O');
+  let currentPlayer = player1;
 
   const select = (e) => {
     if (e.target.dataset.index == null) return;
-    gameboard.select(e.target.dataset.index, player1);
+    gameboard.select(e.target.dataset.index, currentPlayer);
+    currentPlayer = currentPlayer === player1 ? player2 : player1;
   };
 
   document.addEventListener('click', select);
