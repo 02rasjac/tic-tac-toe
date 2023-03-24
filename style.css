@@ -1,0 +1,31 @@
+* {
+  color: aliceblue;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(37, 37, 46);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+}
+
+#gameboard {
+  --size: 18rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: var(--size);
+  height: var(--size);
+  gap: 2px;
+}
+
+.square {
+  width: calc(var(--size) / 3);
+  height: calc(var(--size) / 3);
+  background-color: aliceblue;
+}
