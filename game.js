@@ -24,7 +24,11 @@ const game = (() => {
       };
 
       const col = () => {
-        console.log(getFirstIndexInCol(index));
+        const firstIndex = getFirstIndexInCol(index);
+        for (let i = firstIndex; i < firstIndex + 7; i += 3) {
+          if (sign !== squares[i].innerText) return false;
+        }
+        return true;
       };
 
       if (row() || col()) console.log('Someone won');
