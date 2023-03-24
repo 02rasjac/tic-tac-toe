@@ -13,11 +13,15 @@ const game = (() => {
      * Update the selected square.
      * @param {int} squareIndex The index of the square.
      * @param {player} player The player-object.
+     * @returns `null` if invalid (i.e blocked), `true` if player won, otherwise `false`.
      */
     const select = (squareIndex, player) => {
+      if (!isValidChoice(squareIndex)) return null;
       squares[squareIndex].innerText = player.sign;
-      check(squareIndex, player.sign);
+      return check(squareIndex, player.sign);
     };
+
+    const isValidChoice = (index) => squares[index].innerText === '';
 
     /**
      * Check if some has won.
@@ -81,7 +85,9 @@ const game = (() => {
 
   const select = (e) => {
     if (e.target.dataset.index == null) return;
-    gameboard.select(e.target.dataset.index, currentPlayer);
+    const retVal = gameboard.select(e.target.dataset.index, currentPlayer);
+    if (retVal === null) return;
+    if (retVal === true) console.log(currentPlayer.sign + ' won!');
     currentPlayer = currentPlayer === player1 ? player2 : player1;
   };
 
