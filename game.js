@@ -135,20 +135,25 @@ const game = (() => {
     const retVal = gameboard.select(e.target.dataset.index, currentPlayer);
     if (retVal === null) return;
     if (retVal === true) {
-      // Someone won
-      console.log(currentPlayer.sign + ' won!');
-      ended = true;
-      gameboard.disable();
+      endGame();
     }
 
     currentPlayer = currentPlayer === player1 ? player2 : player1;
     nSelected++;
     if (nSelected >= 9) {
-      // No-one won
-      console.log("It's a tie!");
-      ended = true;
-      gameboard.disable();
+      endGame(true);
     }
+  };
+
+  const endGame = (tie = false) => {
+    if (tie) {
+      console.log("It's a tie!");
+    } else {
+      console.log(currentPlayer.sign + ' won!');
+    }
+
+    ended = true;
+    gameboard.disable();
   };
 
   const startReset = () => {
