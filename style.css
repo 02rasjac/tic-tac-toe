@@ -46,7 +46,12 @@ body {
 #start-reset {
   font-size: 1.3rem;
   margin-top: 2rem;
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+#out {
+  margin-top: 2rem;
+  grid-column: -1 / -2;
 }
 
 .square,
