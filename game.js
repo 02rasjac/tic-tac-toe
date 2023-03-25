@@ -156,13 +156,20 @@ const game = (() => {
     gameboard.disable();
   };
 
+  const randomizePlayer = () => {
+    currentPlayer = Math.random() < 0.5 ? player1 : player2;
+  };
+
   const startReset = () => {
     gameboard.reset();
     gameboard.enable();
+
     nSelected = 0;
     ended = false;
+
     player1.update();
     player2.update();
+    randomizePlayer();
   };
 
   document.addEventListener('click', select);
