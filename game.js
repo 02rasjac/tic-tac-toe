@@ -46,6 +46,12 @@ const game = (() => {
       return check(squareIndex, player.sign);
     };
 
+    const reset = () => {
+      squares.forEach((s) => {
+        s.innerText = '';
+      });
+    };
+
     const isValidChoice = (index) => squares[index].innerText === '';
 
     /**
@@ -101,7 +107,7 @@ const game = (() => {
       return 2;
     };
 
-    return { select };
+    return { select, reset };
   })();
 
   const player1 = playerFact(1);
@@ -132,6 +138,8 @@ const game = (() => {
   };
 
   const start = () => {
+    gameboard.reset();
+    nSelected = 0;
     ended = false;
     player1.update();
     player2.update();
