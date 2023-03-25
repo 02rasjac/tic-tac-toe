@@ -141,6 +141,7 @@ const game = (() => {
     }
 
     currentPlayer = currentPlayer === player1 ? player2 : player1;
+    output.innerText = "It's " + currentPlayer.name + "'s turn!";
     nSelected++;
     if (nSelected >= 9) {
       endGame(true);
@@ -173,6 +174,7 @@ const game = (() => {
     player1.update();
     player2.update();
     randomizePlayer();
+    output.innerText = currentPlayer.name + ' starts the game!';
   };
 
   document.addEventListener('click', select);
