@@ -43,6 +43,7 @@ const game = (() => {
     const select = (squareIndex, player) => {
       if (!isValidChoice(squareIndex)) return null;
       squares[squareIndex].innerText = player.sign;
+      squares[squareIndex].style.color = player.color;
       return check(squareIndex, player.sign);
     };
 
