@@ -52,6 +52,18 @@ const game = (() => {
       });
     };
 
+    const enable = () => {
+      squares.forEach((s) => {
+        s.classList.remove('disabled');
+      });
+    };
+
+    const disable = () => {
+      squares.forEach((s) => {
+        s.classList.add('disabled');
+      });
+    };
+
     const isValidChoice = (index) => squares[index].innerText === '';
 
     /**
@@ -107,13 +119,13 @@ const game = (() => {
       return 2;
     };
 
-    return { select, reset };
+    return { select, reset, enable, disable };
   })();
 
   const player1 = playerFact(1);
   const player2 = playerFact(2);
   let currentPlayer = player1;
-  let ended = false;
+  let ended = true;
   let nSelected = 0;
 
   const select = (e) => {
@@ -126,6 +138,7 @@ const game = (() => {
       // Someone won
       console.log(currentPlayer.sign + ' won!');
       ended = true;
+      gameboard.disable();
     }
 
     currentPlayer = currentPlayer === player1 ? player2 : player1;
@@ -134,11 +147,13 @@ const game = (() => {
       // No-one won
       console.log("It's a tie!");
       ended = true;
+      gameboard.disable();
     }
   };
 
   const startReset = () => {
     gameboard.reset();
+    gameboard.enable();
     nSelected = 0;
     ended = false;
     player1.update();
