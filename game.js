@@ -161,6 +161,7 @@ const game = (() => {
   };
 
   const startReset = () => {
+    document.querySelector('#start-reset').innerText = 'Reset';
     gameboard.reset();
     gameboard.enable();
 
