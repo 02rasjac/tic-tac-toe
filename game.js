@@ -128,6 +128,7 @@ const game = (() => {
   let currentPlayer = player1;
   let ended = true;
   let nSelected = 0;
+  const output = document.querySelector('#out');
 
   const select = (e) => {
     if (e.target.dataset.index == null) return;
@@ -148,9 +149,9 @@ const game = (() => {
 
   const endGame = (tie = false) => {
     if (tie) {
-      console.log("It's a tie!");
+      output.innerText = "It's a tie!";
     } else {
-      console.log(currentPlayer.name + ' won!');
+      output.innerText = currentPlayer.name + ' won!';
     }
 
     ended = true;
