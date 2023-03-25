@@ -1,9 +1,30 @@
 const playerFact = (playerNum) => {
-  const choices = document.querySelector(`#p${playerNum}`);
-  const name = choices.querySelector(`#p${playerNum}-name`).value;
-  const sign = choices.querySelector(`#p${playerNum}-sign`).value;
-  const color = choices.querySelector(`#p${playerNum}-color`).value;
-  return { name, sign, color };
+  const pNum = playerNum;
+  const choices = document.querySelector(`#p${pNum}`);
+  let name;
+  let sign;
+  let color;
+
+  const update = () => {
+    name = choices.querySelector(`#p${pNum}-name`).value;
+    sign = choices.querySelector(`#p${pNum}-sign`).value;
+    color = choices.querySelector(`#p${pNum}-color`).value;
+  };
+
+  update();
+
+  return {
+    get name() {
+      return name;
+    },
+    get sign() {
+      return sign;
+    },
+    get color() {
+      return color;
+    },
+    update,
+  };
 };
 
 const game = (() => {
@@ -110,5 +131,12 @@ const game = (() => {
     }
   };
 
+  const start = () => {
+    ended = false;
+    player1.update();
+    player2.update();
+  };
+
   document.addEventListener('click', select);
+  document.querySelector('#start').addEventListener('click', start);
 })();
