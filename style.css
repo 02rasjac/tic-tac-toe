@@ -39,7 +39,17 @@ body {
   align-items: center;
 }
 
+.btn-game-ctrl {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+
+#reset {
+  grid-column: -1 / -2;
+}
+
 .square,
+.btn-game-ctrl,
 input,
 select,
 option {
