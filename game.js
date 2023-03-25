@@ -150,7 +150,7 @@ const game = (() => {
     if (tie) {
       console.log("It's a tie!");
     } else {
-      console.log(currentPlayer.sign + ' won!');
+      console.log(currentPlayer.name + ' won!');
     }
 
     ended = true;
