@@ -137,7 +137,7 @@ const game = (() => {
     }
   };
 
-  const start = () => {
+  const startReset = () => {
     gameboard.reset();
     nSelected = 0;
     ended = false;
@@ -146,5 +146,5 @@ const game = (() => {
   };
 
   document.addEventListener('click', select);
-  document.querySelector('#start').addEventListener('click', start);
+  document.querySelector('#start-reset').addEventListener('click', startReset);
 })();
